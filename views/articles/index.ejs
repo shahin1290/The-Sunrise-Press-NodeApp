@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles</title>
+  </head>
+  <body>
+    <h1>All Articles</h1>
+    <a href="/articles/new">Add Article</a>
+    <ul>
+      <% for (let article of articles) {%>
+      <li><a href="/articles/<%= article._id %>"><%= article.title %></a></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
