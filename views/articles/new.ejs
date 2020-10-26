@@ -1,31 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <form action="/articles" method="POST">
-      <div>
-        <label for="title">Title</label>
-        <input type="text" id="title" name="article[title]" />
-      </div>
-      <div>
-        <label for="description">Description</label>
-        <input type="text" id="description" name="article[description]" />
-      </div>
-      <div>
-        <label for="content">Content</label>
-        <textarea
+<% layout('layouts/boilerplate')%>
+<div class="row">
+  <h1 class="text-center">New Article</h1>
+</div>
+<div class="col-6 offset-3">
+  <form action="/articles" method="POST">
+    <div class="mb-3">
+      <label class="form-label" for="title">Title</label>
+      <input
+        class="form-control"
+        type="text"
+        id="title"
+        name="article[title]"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="description">Description</label>
+      <input
+        class="form-control"
+        type="text"
+        id="description"
+        name="article[description]"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="content">Content</label>
+      <textarea
+        class="form-control"
+        type="text"
+        id="content"
+        name="article[content]"
+        rows="4"
+        cols="50"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="image">Image Url</label>
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input
+          class="form-control"
           type="text"
-          id="content"
-          name="article[content]"
-          rows="4"
-          cols="50"
-        ></textarea>
+          id="image"
+          name="article[image]"
+          aria-describedby="basic-addon1"
+        />
       </div>
-      <button>Add Article</button>
-    </form>
-  </body>
-</html>
+    </div>
+    
+
+    <div class="mb-3">
+      <button class="btn btn-success">Add Article</button>
+    </div>
+  </form>
+</div>

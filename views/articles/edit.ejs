@@ -1,44 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Edit Article</h1>
-    <form action="/articles/<%= article._id %>?_method=PUT" method="POST">
-      <div>
-        <label for="title">Title</label>
+<% layout('layouts/boilerplate')%>
+
+<div class="row">
+  <h1 class="text-center">Edit Article</h1>
+</div>
+<div class="col-6 offset-3">
+  <form action="/articles/<%= article._id %>?_method=PUT" method="POST">
+    <div class="mb-3">
+      <label class="form-label" for="title">Title</label>
+      <input
+        class="form-control"
+        type="text"
+        id="title"
+        name="article[title]"
+        value="<%= article.title %>"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="description">Description</label>
+      <input
+        class="form-control"
+        type="text"
+        id="description"
+        name="article[description]"
+        value="<%= article.description %>"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="content">Content</label>
+      <textarea
+        class="form-control"
+        type="text"
+        id="content"
+        name="article[content]"
+        rows="4"
+        cols="50"
+        value="<%= article.content %>"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="image">Image Url</label>
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon1">@</span>
         <input
+          class="form-control"
           type="text"
-          id="title"
-          name="article[title]"
-          value="<%= article.title %>"
+          id="image"
+          name="article[image]"
+          aria-describedby="basic-addon1"
+          value="<%= article.image %>"
         />
       </div>
-      <div>
-        <label for="description">Description</label>
-        <input
-          type="text"
-          id="description"
-          name="article[description]"
-          value="<%= article.description %>"
-        />
-      </div>
-      <div>
-        <label for="content">Content</label>
-        <textarea
-          type="text"
-          id="content"
-          name="article[content]"
-          rows="4"
-          cols="50"
-          value="<%= article.content %>"
-        ></textarea>
-      </div>
-      <button>Update Article</button>
-    </form>
-    <a href="/articles/<%= article._id %> ">Back to Article</a>
-  </body>
-</html>
+    </div>
+
+    <div class="mb-3">
+      <button class="btn btn-success">Update Article</button>
+    </div>
+  </form>
+  <a href="/articles/<%= article._id %> ">Back to Article</a>
+
+</div>
+
