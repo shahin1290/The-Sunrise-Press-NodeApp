@@ -3,7 +3,7 @@
   <h1 class="text-center">New Article</h1>
 </div>
 <div class="col-6 offset-3">
-  <form action="/articles" method="POST">
+  <form action="/articles" method="POST" novalidate class="needs-validation">
     <div class="mb-3">
       <label class="form-label" for="title">Title</label>
       <input
@@ -11,6 +11,7 @@
         type="text"
         id="title"
         name="article[title]"
+        required
       />
     </div>
     <div class="mb-3">
@@ -20,6 +21,7 @@
         type="text"
         id="description"
         name="article[description]"
+        required
       />
     </div>
     <div class="mb-3">
@@ -31,6 +33,7 @@
         name="article[content]"
         rows="4"
         cols="50"
+        required
       ></textarea>
     </div>
     <div class="mb-3">
@@ -43,13 +46,14 @@
           id="image"
           name="article[image]"
           aria-describedby="basic-addon1"
+          required
         />
       </div>
     </div>
-    
-
     <div class="mb-3">
       <button class="btn btn-success">Add Article</button>
     </div>
   </form>
 </div>
+
+

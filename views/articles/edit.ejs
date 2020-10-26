@@ -4,7 +4,12 @@
   <h1 class="text-center">Edit Article</h1>
 </div>
 <div class="col-6 offset-3">
-  <form action="/articles/<%= article._id %>?_method=PUT" method="POST">
+  <form
+    action="/articles/<%= article._id %>?_method=PUT"
+    method="POST"
+    novalidate
+    class="needs-validation"
+  >
     <div class="mb-3">
       <label class="form-label" for="title">Title</label>
       <input
@@ -13,6 +18,7 @@
         id="title"
         name="article[title]"
         value="<%= article.title %>"
+        required
       />
     </div>
     <div class="mb-3">
@@ -23,6 +29,7 @@
         id="description"
         name="article[description]"
         value="<%= article.description %>"
+        required
       />
     </div>
     <div class="mb-3">
@@ -34,8 +41,10 @@
         name="article[content]"
         rows="4"
         cols="50"
-        value="<%= article.content %>"
-      ></textarea>
+        required
+      >
+<%= article.content %></textarea
+      >
     </div>
     <div class="mb-3">
       <label class="form-label" for="image">Image Url</label>
@@ -48,6 +57,7 @@
           name="article[image]"
           aria-describedby="basic-addon1"
           value="<%= article.image %>"
+          required
         />
       </div>
     </div>
@@ -57,6 +67,4 @@
     </div>
   </form>
   <a href="/articles/<%= article._id %> ">Back to Article</a>
-
 </div>
-
